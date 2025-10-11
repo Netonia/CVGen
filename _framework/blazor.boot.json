@@ -1,10 +1,10 @@
 {
   "mainAssemblyName": "CVGen",
   "resources": {
-    "hash": "sha256-O2TRKBRUR/FObZ8sSu3Cg1d/t8OMTp0HDPuutLncO34=",
+    "hash": "sha256-AFs267QZYkKw/nFw0tF6UxKdvL9cyLqAODZxbQnke/g=",
     "fingerprinting": {
       "Fluid.iud4mxxyia.wasm": "Fluid.wasm",
-      "Microsoft.AspNetCore.Components.pqgvsgtxoq.wasm": "Microsoft.AspNetCore.Components.wasm",
+      "Microsoft.AspNetCore.Components.7bu238m0nq.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Web.ca5xgge1r2.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
       "Microsoft.AspNetCore.Components.WebAssembly.rwpg67y8a3.wasm": "Microsoft.AspNetCore.Components.WebAssembly.wasm",
       "Microsoft.Extensions.Configuration.cyz6aj3end.wasm": "Microsoft.Extensions.Configuration.wasm",
@@ -53,7 +53,7 @@
       "System.Text.RegularExpressions.dsgb49d06u.wasm": "System.Text.RegularExpressions.wasm",
       "System.Threading.jgr1p9vi98.wasm": "System.Threading.wasm",
       "System.Private.CoreLib.9odzv5vg4e.wasm": "System.Private.CoreLib.wasm",
-      "CVGen.o35w7u378z.wasm": "CVGen.wasm",
+      "CVGen.spo9hv0y4q.wasm": "CVGen.wasm",
       "dotnet.js": "dotnet.js",
       "dotnet.native.9ih887ebfz.js": "dotnet.native.js",
       "dotnet.native.21mns4qp4i.wasm": "dotnet.native.wasm",
@@ -82,7 +82,7 @@
     },
     "assembly": {
       "Fluid.iud4mxxyia.wasm": "sha256-GqlV2F7Od18r4nLbNxspOE7qqV26yIxkB6kjHIIabzA=",
-      "Microsoft.AspNetCore.Components.pqgvsgtxoq.wasm": "sha256-gVLp35fnJDlWkojrzth88Y6B2r0rDxwhv2t6XpL8kMw=",
+      "Microsoft.AspNetCore.Components.7bu238m0nq.wasm": "sha256-82iOybbImYMfKT5l8f9njvz0U/xLUsvq3ddXGun/+tE=",
       "Microsoft.AspNetCore.Components.Web.ca5xgge1r2.wasm": "sha256-/PbvE6qnnEDO3aL/UsN1rdRqu86udyP8e55jCA8jTgI=",
       "Microsoft.AspNetCore.Components.WebAssembly.rwpg67y8a3.wasm": "sha256-1bZXAq7xg/K+UZT3zZxmJHp4UKNJQBP+2ny+/lGkyHo=",
       "Microsoft.Extensions.Configuration.cyz6aj3end.wasm": "sha256-fN4AyqImDQ+h3H7tFeF4ZSkjIHJ7qWgbKL217x6P53s=",
@@ -129,7 +129,7 @@
       "System.Text.Json.l5lvq4u3fx.wasm": "sha256-J/ly7kbvECrFk2XOKGAGMfvXRA4TuJ9X1RbG0Q5JEdg=",
       "System.Text.RegularExpressions.dsgb49d06u.wasm": "sha256-Q74P1AaqHaO0YfBNi1lYuHKdmwuU6PpuObvMu0DsZfk=",
       "System.Threading.jgr1p9vi98.wasm": "sha256-Qy6+vmFJ1FJPhLt3UC9Hi4rUgoWOYV9Qslfr2Nke1pU=",
-      "CVGen.o35w7u378z.wasm": "sha256-1HBep0s9Jx1g3nt25T8nqLlv+4uxhQClDcDxWaLtaus="
+      "CVGen.spo9hv0y4q.wasm": "sha256-oA1LOGmbq3rEiW5EEiPjzIBQYef6Wxd++94cM0FE/Ww="
     }
   },
   "cacheBootResources": true,
