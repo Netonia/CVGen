@@ -71,9 +71,10 @@ main[b-bk1h6yu81v] {
         width: 0;
     }
 
+    /* Remove default padding to allow full width usage */
     .top-row[b-bk1h6yu81v], article[b-bk1h6yu81v] {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
 /* /Layout/NavMenu.razor.rz.scp.css */
@@ -162,21 +163,23 @@ main[b-bk1h6yu81v] {
 }
 /* /Pages/Home.razor.rz.scp.css */
 .cv-generator-container[b-1an2v80ptl] {
-    padding: 20px;
+    padding: 20px 0; /* Remove left/right padding to use full width */
 }
 
 .app-title[b-1an2v80ptl] {
     text-align: center;
     color: #2c3e50;
     margin-bottom: 30px;
+    padding: 0 20px; /* Add padding only to title */
 }
 
 .cv-layout[b-1an2v80ptl] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    max-width: 1800px;
-    margin: 0 auto;
+    /* Remove max-width and margin to use full width */
+    width: 100%;
+    padding: 0 20px; /* Add padding to the grid container instead */
 }
 
 .form-section[b-1an2v80ptl] {
