@@ -1,0 +1,268 @@
+﻿@page "/"
+@using CVGen.Models
+@using CVGen.Services
+@inject IJSRuntime JSRuntime
+@inject TemplateService TemplateService
+
+<PageTitle>CV Generator</PageTitle>
+
+<div class="cv-generator-container">
+    @* <h1 class="app-title">CV Generator</h1> *@
+    
+    <div class="cv-layout">
+        <div class="form-section">
+            <h2>Personal Information</h2>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" @bind="cvData.PersonalInfo.Name" @bind:event="oninput" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" @bind="cvData.PersonalInfo.Email" @bind:event="oninput" />
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" class="form-control" @bind="cvData.PersonalInfo.Phone" @bind:event="oninput" />
+            </div>
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" class="form-control" @bind="cvData.PersonalInfo.Location" @bind:event="oninput" />
+            </div>
+            <div class="form-group">
+                <label>LinkedIn</label>
+                <input type="text" class="form-control" @bind="cvData.PersonalInfo.LinkedIn" @bind:event="oninput" />
+            </div>
+            <div class="form-group">
+                <label>GitHub</label>
+                <input type="text" class="form-control" @bind="cvData.PersonalInfo.GitHub" @bind:event="oninput" />
+            </div>
+
+            <h2>Professional Summary</h2>
+            <div class="form-group">
+                <textarea class="form-control" rows="4" @bind="cvData.Summary" @bind:event="oninput" placeholder="Brief summary of your professional background..."></textarea>
+            </div>
+
+            <h2>Work Experience</h2>
+            @for (int i = 0; i < cvData.WorkExperience.Count; i++)
+            {
+                var index = i;
+                <div class="item-container">
+                    <div class="form-group">
+                        <label>Position</label>
+                        <input type="text" class="form-control" @bind="cvData.WorkExperience[index].Position" @bind:event="oninput" />
+                    </div>
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" class="form-control" @bind="cvData.WorkExperience[index].Company" @bind:event="oninput" />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Start Date</label>
+                            <input type="text" class="form-control" @bind="cvData.WorkExperience[index].StartDate" @bind:event="oninput" />
+                        </div>
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <input type="text" class="form-control" @bind="cvData.WorkExperience[index].EndDate" @bind:event="oninput" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" rows="3" @bind="cvData.WorkExperience[index].Description" @bind:event="oninput"></textarea>
+                    </div>
+                    <button class="btn btn-danger btn-sm" @onclick="() => RemoveWorkExperience(index)">Remove</button>
+                </div>
+            }
+            <button class="btn btn-secondary mb-3" @onclick="AddWorkExperience">Add Work Experience</button>
+
+            <h2>Education</h2>
+            @for (int i = 0; i < cvData.Education.Count; i++)
+            {
+                var index = i;
+                <div class="item-container">
+                    <div class="form-group">
+                        <label>Degree</label>
+                        <input type="text" class="form-control" @bind="cvData.Education[index].Degree" @bind:event="oninput" />
+                    </div>
+                    <div class="form-group">
+                        <label>Institution</label>
+                        <input type="text" class="form-control" @bind="cvData.Education[index].Institution" @bind:event="oninput" />
+                    </div>
+                    <div class="form-group">
+                        <label>Year</label>
+                        <input type="text" class="form-control" @bind="cvData.Education[index].Year" @bind:event="oninput" />
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" rows="2" @bind="cvData.Education[index].Description" @bind:event="oninput"></textarea>
+                    </div>
+                    <button class="btn btn-danger btn-sm" @onclick="() => RemoveEducation(index)">Remove</button>
+                </div>
+            }
+            <button class="btn btn-secondary mb-3" @onclick="AddEducation">Add Education</button>
+
+            <h2>Skills</h2>
+            <div class="skills-input">
+                @for (int i = 0; i < cvData.Skills.Count; i++)
+                {
+                    var index = i;
+                    <div class="skill-item">
+                        <input type="text" class="form-control" @bind="cvData.Skills[index]" @bind:event="oninput" />
+                        <button class="btn btn-danger btn-sm" @onclick="() => RemoveSkill(index)">×</button>
+                    </div>
+                }
+                <button class="btn btn-secondary mb-3" @onclick="AddSkill">Add Skill</button>
+            </div>
+
+            <h2>Languages</h2>
+            @for (int i = 0; i < cvData.Languages.Count; i++)
+            {
+                var index = i;
+                <div class="item-container">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Language</label>
+                            <input type="text" class="form-control" @bind="cvData.Languages[index].Name" @bind:event="oninput" />
+                        </div>
+                        <div class="form-group">
+                            <label>Proficiency</label>
+                            <input type="text" class="form-control" @bind="cvData.Languages[index].Proficiency" @bind:event="oninput" placeholder="e.g., Native, Fluent, Intermediate" />
+                        </div>
+                    </div>
+                    <button class="btn btn-danger btn-sm" @onclick="() => RemoveLanguage(index)">Remove</button>
+                </div>
+            }
+            <button class="btn btn-secondary mb-3" @onclick="AddLanguage">Add Language</button>
+        </div>
+
+        <div class="preview-section">
+            <div class="preview-header">
+                <h2>Live Preview</h2>
+                <div class="export-buttons">
+                    <button class="btn btn-primary" @onclick="DownloadPdf">Download PDF</button>
+                    <button class="btn btn-outline-primary" @onclick="DownloadHtml">Export HTML</button>
+                </div>
+            </div>
+            <div id="cv-preview" class="cv-preview">
+                @((MarkupString)renderedCV)
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private CVData cvData = new();
+    private string renderedCV = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadSampleData();
+        await RenderCV();
+    }
+
+    private void LoadSampleData()
+    {
+        cvData.PersonalInfo.Name = "Antoine Griffard";
+        cvData.PersonalInfo.Email = "antoine@example.com";
+        cvData.PersonalInfo.Phone = "+1 234 567 8900";
+        cvData.PersonalInfo.Location = "San Francisco, CA";
+        cvData.PersonalInfo.LinkedIn = "linkedin.com/in/antoinegriffard";
+        cvData.PersonalInfo.GitHub = "github.com/antoinegriffard";
+
+        cvData.Summary = "Experienced software developer with expertise in full-stack development, cloud technologies, and modern web frameworks.";
+
+        cvData.Education.Add(new Education
+        {
+            Degree = "BSc Computer Science",
+            Institution = "University of Technology",
+            Year = "2022",
+            Description = "Graduated with honors, specializing in software engineering and web technologies."
+        });
+
+        cvData.WorkExperience.Add(new WorkExperience
+        {
+            Position = "Software Developer",
+            Company = "Tech Corp",
+            StartDate = "Jan 2022",
+            EndDate = "Present",
+            Description = "Developing full-stack web applications using modern technologies and best practices."
+        });
+
+        cvData.Skills.AddRange(new[] { "C#", "Blazor", "JavaScript", "React", "SQL", "Azure" });
+
+        cvData.Languages.Add(new Language { Name = "English", Proficiency = "Native" });
+        cvData.Languages.Add(new Language { Name = "French", Proficiency = "Fluent" });
+    }
+
+    private async Task RenderCV()
+    {
+        var template = TemplateService.GetDefaultTemplate();
+        renderedCV = await TemplateService.RenderCVAsync(cvData, template);
+        StateHasChanged();
+    }
+
+    private void AddWorkExperience()
+    {
+        cvData.WorkExperience.Add(new WorkExperience());
+        _ = RenderCV();
+    }
+
+    private void RemoveWorkExperience(int index)
+    {
+        cvData.WorkExperience.RemoveAt(index);
+        _ = RenderCV();
+    }
+
+    private void AddEducation()
+    {
+        cvData.Education.Add(new Education());
+        _ = RenderCV();
+    }
+
+    private void RemoveEducation(int index)
+    {
+        cvData.Education.RemoveAt(index);
+        _ = RenderCV();
+    }
+
+    private void AddSkill()
+    {
+        cvData.Skills.Add(string.Empty);
+        _ = RenderCV();
+    }
+
+    private void RemoveSkill(int index)
+    {
+        cvData.Skills.RemoveAt(index);
+        _ = RenderCV();
+    }
+
+    private void AddLanguage()
+    {
+        cvData.Languages.Add(new Language());
+        _ = RenderCV();
+    }
+
+    private void RemoveLanguage(int index)
+    {
+        cvData.Languages.RemoveAt(index);
+        _ = RenderCV();
+    }
+
+    private async Task DownloadPdf()
+    {
+        var filename = $"{cvData.PersonalInfo.Name.Replace(" ", "_")}_CV.pdf";
+        if (string.IsNullOrWhiteSpace(cvData.PersonalInfo.Name))
+            filename = "CV.pdf";
+        
+        await JSRuntime.InvokeVoidAsync("pdfExport.downloadPdf", "cv-preview", filename);
+    }
+
+    private async Task DownloadHtml()
+    {
+        var filename = $"{cvData.PersonalInfo.Name.Replace(" ", "_")}_CV.html";
+        if (string.IsNullOrWhiteSpace(cvData.PersonalInfo.Name))
+            filename = "CV.html";
+        
+        await JSRuntime.InvokeVoidAsync("pdfExport.downloadHtml", renderedCV, filename);
+    }
+}
