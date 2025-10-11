@@ -70,8 +70,9 @@ main {
         width: 0;
     }
 
+    /* Remove default padding to allow full width usage */
     .top-row, article {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }

@@ -41,7 +41,6 @@ public class TemplateService
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f5f5f5;

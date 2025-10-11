@@ -1,19 +1,21 @@
 .cv-generator-container {
-    padding: 20px;
+    padding: 20px 0; /* Remove left/right padding to use full width */
 }
 
 .app-title {
     text-align: center;
     color: #2c3e50;
     margin-bottom: 30px;
+    padding: 0 20px; /* Add padding only to title */
 }
 
 .cv-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    max-width: 1800px;
-    margin: 0 auto;
+    /* Remove max-width and margin to use full width */
+    width: 100%;
+    padding: 0 20px; /* Add padding to the grid container instead */
 }
 
 .form-section {
