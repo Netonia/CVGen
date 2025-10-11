@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "CVGen",
   "resources": {
-    "hash": "sha256-+7t1WGP5UKohB7pGVzS6KUnIjTSYpjVuQ0mkHO9oZ1U=",
+    "hash": "sha256-ukz23OcIISuS+F1gbIL96jmUC4dmRKtoTAi/kGfRG1I=",
     "fingerprinting": {
       "Fluid.iud4mxxyia.wasm": "Fluid.wasm",
       "Microsoft.AspNetCore.Components.7bu238m0nq.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -54,7 +54,7 @@
       "System.Text.RegularExpressions.dsgb49d06u.wasm": "System.Text.RegularExpressions.wasm",
       "System.Threading.jgr1p9vi98.wasm": "System.Threading.wasm",
       "System.Private.CoreLib.a9ubvc5uyt.wasm": "System.Private.CoreLib.wasm",
-      "CVGen.m3o3ze6m3u.wasm": "CVGen.wasm",
+      "CVGen.03xg3wg1d8.wasm": "CVGen.wasm",
       "dotnet.js": "dotnet.js",
       "dotnet.native.9ih887ebfz.js": "dotnet.native.js",
       "dotnet.native.21mns4qp4i.wasm": "dotnet.native.wasm",
@@ -131,7 +131,7 @@
       "System.Text.Json.l5lvq4u3fx.wasm": "sha256-J/ly7kbvECrFk2XOKGAGMfvXRA4TuJ9X1RbG0Q5JEdg=",
       "System.Text.RegularExpressions.dsgb49d06u.wasm": "sha256-Q74P1AaqHaO0YfBNi1lYuHKdmwuU6PpuObvMu0DsZfk=",
       "System.Threading.jgr1p9vi98.wasm": "sha256-Qy6+vmFJ1FJPhLt3UC9Hi4rUgoWOYV9Qslfr2Nke1pU=",
-      "CVGen.m3o3ze6m3u.wasm": "sha256-wnc3OQOZqqJpRzg2/iTbLYDT56HYsUZEIUrEsHa8o2k="
+      "CVGen.03xg3wg1d8.wasm": "sha256-fK5p07OOvO4fCvmgHq3bxqHeAqwQIh5GMGqZdMa9MAo="
     }
   },
   "cacheBootResources": true,
